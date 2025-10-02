@@ -1,99 +1,103 @@
-ByteBank Expense Tracker
-Overview
-ByteBank Expense Tracker is a Python-based desktop application built with the customtkinter library, designed to help users manage their finances by tracking income and expenses. The application features a user-friendly interface with a login system, a dashboard for managing transactions, and real-time financial summaries. Users can add, update, delete, and view transactions, with data stored in JSON files for persistence.
-Features
+# ByteBank Expense Tracker
 
-User Authentication: Secure login and account creation with password validation, stored in users.json.
-Transaction Management:
-Add Transactions: Record income or expenses with details like amount, description, category, date, payment method, and notes.
-Update Transactions: Modify existing transaction details.
-Delete Transactions: Remove transactions by selecting them from a dropdown.
-View Reports: Display a detailed history of all transactions in a readable format.
+## Overview
+**ByteBank Expense Tracker** is a Python-based desktop application built with the `customtkinter` library, designed to help users manage their finances by tracking income and expenses. The application features a user-friendly interface with a secure login system, a dashboard for managing transactions, and real-time financial summaries. Users can add, update, delete, and view transactions, with data stored persistently in JSON files.
 
+---
 
-Real-Time Summaries: Dashboard displays current balance, total income, total expenses, and total savings, updated every second.
-Modern UI: Clean, responsive interface using customtkinter with a consistent color scheme and styling.
-Data Persistence: Transactions are saved in user-specific JSON files (e.g., <username>_transactions.json).
-Error Handling: Robust exception handling with dialog popups for user feedback on errors or successes.
+## Features
 
-Prerequisites
+### User Authentication
+- Secure login and account creation with password validation.
+- User credentials stored in `users.json`.
 
-Python 3.8+: Ensure Python is installed on your system.
-Required Libraries:
-customtkinter: For the GUI.
-Pillow (PIL): For handling profile image icons.
+### Transaction Management
+- **Add Transactions:** Record income or expenses with fields: amount, description, category, date, payment method, and notes.
+- **Update Transactions:** Modify existing transactions via a dropdown selection.
+- **Delete Transactions:** Remove transactions by selecting them from a dropdown.
+- **View Reports:** Display a detailed history of all transactions in a scrollable text area.
 
+### Real-Time Summaries
+- Dashboard displays current balance, total income, total expenses, and total savings, updated in real-time.
 
-Optional: A profile image (images/profile.png) for the login and dashboard UI (the app will still run without it).
+### UI & Persistence
+- Modern, clean interface using `customtkinter` with consistent styling.
+- Transactions saved per user in `<username>_transactions.json`.
+- Robust error handling with user-friendly popup dialogs for success and error feedback.
 
-Installation
+---
 
-Clone the Repository:
-git clone https://github.com/<your-username>/bytebank-expense-tracker.git
-cd bytebank-expense-tracker
+## Prerequisites
+- **Python 3.8+** — ensure Python is installed on your system.
+- **Required libraries:**
+  - `customtkinter` — for the GUI components.
+  - `Pillow` (PIL) — for handling profile images/icons.
 
+Optional: A profile image at `images/profile.png` to display in the login/dashboard UI. The app runs without it and handles missing images gracefully.
 
-Install Dependencies:Install the required Python libraries using pip:
-pip install customtkinter Pillow
+---
 
+## Installation
 
-Directory Structure:Ensure the following structure in your project folder:
+1. **Clone the repository**
+   git clone https://github.com/Jaganbhasker122/ByteBank-Expensives-Tracker.git
+   cd bytebank-expense-tracker
+
+2. **Install dependencies**
+   pip install customtkinter Pillow
+
+3. **Run the application**
+   python expense_tracker.py
+
+---
+
+## Directory Structure
 bytebank-expense-tracker/
+
 ├── images/
-│   └── profile.png (optional)
-├── users.json (auto-created on first account creation)
-├── <username>_transactions.json (auto-created per user)
-├── expense_tracker.py (main application code)
+
+│   └── profile.png            # optional
+
+├── users.json                 # auto-created on first account creation
+
+├── <username>_transactions.json  # auto-created per user
+
+├── MainApp.py         # main application code
+
 └── README.md
 
+---
 
-Run the Application:Start the application by running:
-python expense_tracker.py
+## Usage
 
+### Launch the app
+python MainApp.py
 
+### Create an account
+- On the login screen, click "Don't have an account? Create one now!"
+- Enter a username, password, confirm the password, then click Create Account.
+- A popup confirms account creation; credentials are saved to `users.json`.
 
-Usage
+### Log in
+- Enter your username and password and click Login.
+- Valid credentials open the main dashboard; invalid credentials produce an error popup.
 
-Launch the Application:Run python expense_tracker.py. The login window will appear.
+### Dashboard features
+- **View Summaries:** See current balance, total income, total expenses, and total savings at the top/right of the dashboard.
+- **Add Transaction:** Click ➕ Add Expenses/Income, fill the form (type, amount, description, category, date, payment method, notes) and click Add Record.
+- **Update Transaction:** Click ✏️ Update Records, select a transaction from the dropdown, edit fields and click Update Record.
+- **Delete Transaction:** Click 🗑 Delete Records, select a transaction from the dropdown and click Delete Record.
+- **View Reports:** Click 📑 View Reports to view all transactions in a scrollable area.
+- Errors (invalid input, missing data, file I/O issues) trigger clear popup dialogs.
 
-Create an Account:
+---
 
-Click "Don't have an account? Create one now!" on the login screen.
-Enter a username and password, confirm the password, and click "Create Account".
-A success popup will confirm account creation, and data is saved to users.json.
+## Data Storage
 
+- **Credentials:** Stored in `users.json`.  
+- **Transactions:** Stored per-user in `<username>_transactions.json`. Each transaction contains these fields: `id`, `type`, `amount`, `description`, `category`, `date`, `payment_method`, `notes`.
 
-Log In:
-
-Enter your username and password on the login screen and click "Login".
-If credentials are valid, the main dashboard will open.
-
-
-Dashboard Features:
-
-View Summaries: The top right shows the current balance, and below it, three buttons display total income, expenses, and savings, updated in real-time.
-Add Transaction: Click "➕ Add Expenses/Income" to open a form. Fill in details (type, amount, description, category, date, payment method, notes) and click "Add Record". The form closes on success.
-Update Transaction: Click "✏️ Update Records" to select a transaction from a dropdown, edit its details, and click "Update Record".
-Delete Transaction: Click "🗑 Delete Records" to select a transaction and click "Delete Record" to remove it.
-View Reports: Click "📑 View Reports" to see a list of all transactions in a scrollable text area.
-Errors (e.g., invalid input, missing transaction) trigger popup dialogs with clear messages.
-
-
-Data Storage:
-
-User credentials are stored in users.json.
-Transactions are stored in <username>_transactions.json with fields: id, type, amount, description, category, date, payment_method, and notes.
-
-
-
-File Structure
-
-expense_tracker.py: Main application code containing LoginPage, MainDashboard, and Operations classes.
-users.json: Stores user credentials (username and password).
-<username>_transactions.json: Stores transactions for each user.
-images/profile.png: Optional profile icon for the UI.
-
-Example Transaction File (<username>_transactions.json)
+### Example transaction file (`<username>_transactions.json`)
 [
     {
         "id": "550e8400-e29b-41d4-a716-446655440000",
@@ -117,35 +121,56 @@ Example Transaction File (<username>_transactions.json)
     }
 ]
 
-Development Notes
+---
 
-Libraries Used:
-customtkinter: For modern, customizable GUI components.
-Pillow: For loading profile images.
-json, os, uuid, datetime: Standard Python libraries for data handling, file operations, unique IDs, and date/time.
+## File Descriptions
+- `expense_tracker.py` — Main application code (contains `LoginPage`, `MainDashboard`, and `Operations` classes).
+- `users.json` — Stores user credentials (auto-created).
+- `<username>_transactions.json` — Stores transactions for each user (auto-created).
+- `images/profile.png` — Optional profile icon.
 
+---
 
-Error Handling: All operations (login, account creation, add/update/delete/view transactions) include try-except blocks to handle file I/O errors, invalid inputs, and other exceptions, with user-friendly popup dialogs.
-UI Consistency: The CONFIG dictionary ensures consistent styling across the application (colors, fonts, sizes).
-Data Persistence: JSON files are used for simplicity and portability, suitable for a desktop app.
+## Development Notes
 
-Contributing
-Contributions are welcome! To contribute:
+**Libraries Used**
+- `customtkinter` — modern UI components.
+- `Pillow` — image loading/processing.
+- Standard libs: `json`, `os`, `uuid`, `datetime` for data handling.
 
-Fork the repository.
-Create a new branch (git checkout -b feature/your-feature).
-Make your changes and test thoroughly.
-Commit your changes (git commit -m "Add your feature").
-Push to your branch (git push origin feature/your-feature).
-Open a pull request with a clear description of your changes.
+**Error Handling**
+- All major operations (login, account creation, add/update/delete/view transactions) are wrapped in `try-except` blocks to handle file I/O errors, invalid inputs, and other exceptions. User-friendly popup dialogs inform the user of success or failure.
 
-Please ensure:
+**UI Consistency**
+- A `CONFIG` dictionary centralizes colors, fonts, and sizes to keep the UI consistent across the app.
 
-Code follows PEP 8 style guidelines.
-New features include appropriate error handling and dialog feedback.
-UI changes maintain the existing theme and CONFIG settings.
+**Data Persistence**
+- JSON files are used for simplicity, portability, and easy debugging — suitable for desktop use.
 
-License
-This project is licensed under the MIT License. See the LICENSE file for details.
-Contact
-For issues or feature requests, please open an issue on the GitHub repository or contact [your-email@example.com].
+---
+
+## Contributing
+
+Contributions are welcome!
+
+1. Fork the repository.
+2. Create a new branch:
+   git checkout -b feature/your-feature
+3. Make changes and test thoroughly.
+4. Commit your changes:
+   git commit -m "Add your feature"
+5. Push to your branch:
+   git push origin feature/your-feature
+6. Open a pull request describing your changes.
+
+**Guidelines**
+- Follow PEP 8 style guidelines.
+- Include proper error handling and dialog feedback for new features.
+- Preserve UI theme and `CONFIG` settings for consistency.
+
+---
+
+## License
+This project is Open-Souce. Anyone can contribute 😉
+
+---
