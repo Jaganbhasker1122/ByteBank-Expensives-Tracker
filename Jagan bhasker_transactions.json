@@ -1,0 +1,22 @@
+[
+    {
+        "id": "eabb9800-6943-497a-b36d-5d4b834601c2",
+        "type": "Income",
+        "amount": 1000.0,
+        "description": "Credited from Amazon",
+        "category": "Shopping",
+        "date": "2025-08-08",
+        "payment_method": "UPI",
+        "notes": "Flipkart Order returned"
+    },
+    {
+        "id": "de83e049-867f-48dd-b3b0-fcbaacdf8c07",
+        "type": "Expense",
+        "amount": 200.0,
+        "description": "Biriyani",
+        "category": "Food",
+        "date": "2025-08-15",
+        "payment_method": "Cash",
+        "notes": "Birthday Party"
+    }
+]
